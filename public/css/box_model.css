@@ -1,0 +1,80 @@
+ p {
+     font-size:3rem;
+ }
+ /* This section affects the size border text color and the text weight text shadow of all the boxes*/
+.box{
+    width: 9.375rem;
+    height: 3.125rem;
+    border:.1rem solid rgb(26, 140, 16);
+    font-weight: bold;
+    color:white;
+    text-shadow: .11rem .11rem #000000;
+    margin:.625rem;
+    padding:.625rem;
+    position: relative;
+}
+.box:hover{
+    width:30rem;
+    height: 10rem;
+}
+
+.box:hover::before{
+    display: none;
+}
+.box1:hover::after{
+position: absolute;
+    display: block;
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+}
+.box2:hover::after{
+
+    display: block;
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+}
+.box3:hover::after{
+    display: block;
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+}
+.box4:hover::after{
+    display: block;
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+}
+.box5:hover::after{
+    display: block;
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+}
+.box6:hover::after{
+
+    display: block;
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+}
+/* This sections allows us to change the padding margin and background color*/
+.box1{
+    background-color: red;
+
+}
+
+.box2{
+    margin-left: 1.875rem;
+    background-color: orange;
+}
+
+.box3{
+    margin-left:3.75rem;
+    background-color: yellow;
+}
+
+.box4{
+    margin-left: 5.625rem;
+    background-color: green;
+}
+
+.box5{
+    margin-left: 7.5rem;
+    background-color: blue;
+}
+
+.box6{
+    margin-left:9.375rem;
+    background-color: pink;
+}

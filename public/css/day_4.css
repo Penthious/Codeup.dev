@@ -1,0 +1,87 @@
+body {
+    background-image:url(https://i.ytimg.com/vi/ukywVcxv5r4/maxresdefault.jpg);
+    background-attachment: fixed;
+
+}
+li {
+
+    display: inline;
+    font-size:1.6rem;
+    text-align:center;
+    position: relative;
+    bottom: 1.15rem;
+
+}
+
+.game_nav {
+        padding: .3rem;
+        border: black 2px solid;
+        background-color:rgb(8, 27, 125);
+    }
+
+.posts a{
+        text-decoration: none;
+        color:red;
+        font-family: fantasy;
+        font-weight: bolder;
+        font-size:4rem;
+    }
+ul a {
+    text-decoration: none;
+    color:red;
+    font-family: fantasy;
+    font-size:1.5rem;
+    }
+
+.game_numbers {
+    text-decoration: underline;
+    font-size:2rem;
+    text-align:center;
+}
+img {
+    width: 35rem;
+    height: 20rem;
+    position: relative;
+}
+.img_center {
+    /*width: 23rem;*/
+    text-align: center;
+}
+
+.text_center {
+    padding: rem;
+    margin-right: 10rem;
+    margin-left: 10rem;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: white;
+    opacity: 0.7;
+    position: relative;
+    bottom: 6.5rem
+}
+
+h2 {
+    margin-right: 10rem;
+    margin-left: 10rem;
+    text-align: center;
+    font-size: 2.4rem;
+    background-color: red;
+    opacity: 0.5;
+    position: relative;
+    bottom:4.45rem;
+}
+h1 {
+    margin-left: 28rem;
+    margin-right:3rem;
+    text-align: center;
+    font-size: 2.4rem;
+    color: white;
+    background-color: red;
+    /*opacity: 0.5;*/
+    position: fixed;
+    z-index: 1030;
+}
+.test{
+    /* float:left; */
+
+}
