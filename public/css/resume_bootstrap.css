@@ -1,0 +1,46 @@
+body{
+    background-color:grey;
+}
+.btn, .btn-lg, .btn-primary{
+    background-color: rgb(61, 4, 0);
+    color: white;
+    border: 1px solid rgb(108, 2, 2);
+}
+h2{
+    color: white;
+
+}
+.navbar_lists{
+margin-right: 20px;
+}
+.navbar_signin{
+    margin-left: 600px;
+}
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgb(133, 1, 1);
+  border-radius: 10px;
+  }
+
+  .text-muted{
+      color: black;
+  }
+  .lead{
+      color:white;
+  }
+.dropdown-menu{
+    background-color: black;
+}
+.dropdown_color{
+    color:red;
+}
+hr{
+    border-color: rgb(133, 1, 1);
+}
