@@ -6,16 +6,20 @@ body{
     color: white;
     border: 1px solid rgb(108, 2, 2);
 }
+
 h2{
     color: white;
 
 }
+
 .navbar_lists{
 margin-right: 20px;
 }
+
 .navbar_signin{
     margin-left: 600px;
 }
+
 .carousel-indicators li {
   display: inline-block;
   width: 10px;
@@ -32,15 +36,18 @@ margin-right: 20px;
   .text-muted{
       color: black;
   }
+
   .lead{
       color:white;
   }
 .dropdown-menu{
     background-color: black;
 }
+
 .dropdown_color{
     color:red;
 }
+
 hr{
     border-color: rgb(133, 1, 1);
 }
