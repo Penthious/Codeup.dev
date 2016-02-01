@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>breaks and continues</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        "use strict"
+
+    do {
+        var random =Math.floor((Math.random()*50)+1)
+    } while (random%2 == 0);
+        console.log("this is the random number: " + random);
+
+    for (var i = 1; i <= 49; i += 1) {
+        if (i == random) {
+            // console.log("this is the random");
+            continue;
+        }else if (i % 2 == 1) {
+            console.log(i);
+        }
+    }
+
+        </script>
+    </body>
+</html>
