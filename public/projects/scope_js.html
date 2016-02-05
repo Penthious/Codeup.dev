@@ -2,11 +2,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>functions</title>
+        <title>scope</title>
     </head>
     <body>
         <script type="text/javascript">
-            "use strict"
+
+
+        (function() {
+            'use strict';
+
             function add(a, b) {
                 console.log(a + b);
             }
@@ -31,42 +35,8 @@
                 console.log("This is even a number: " + random);
             }
 
-
-
-
-
-
-            function isanumber(a, b){
-                if (isNaN(a)) {
-                    console.log("Please input numerical numbers");
-                    return false;
-                }else {
-                    return true;
-                    }
-                }
-            function sumoftwo(a, b){
-                if (isanumber(a) && isanumber(b)) {
-                    return parseFloat(a) + parseFloat(b);
-                }
-            }
-
-
-
-            function differenceoftwo(c, d){
-                if (isNaN(c) || isNaN(d)){
-                    return ("Please input a real digit");
-                }
-                return(c - d);
-            }
-
-
-
-
-
-
-
-
-
+        }());
         </script>
+
     </body>
 </html>

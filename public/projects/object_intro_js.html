@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>objects</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var names = {
+                    "firstName": "Tomas",
+                    "lastName": "Leffew",
+                    "sayHello": function () {
+                        alert("Say hello " + this.firstName + " " + this.lastName);
+                    }
+                };
+
+            var car = {
+                "make": "Chevy",
+                "model": "Corvette",
+                "years": [1999, 1985, 1967],
+                "honk": function() {
+                    return 'HONK HONK';
+                },
+                "getMakeAndModel": function() {
+                    return "The car is a " + this.make + " " + this.model;
+                },
+                "makeAndModel": function(){
+                    return this.getMakeAndModel();
+                }
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>manipulating arrays</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            "use strict"
+            // todo:
+            // Create an array holding the names of the planets of our solar system (in order, starting closest to the sun).
+            var planets = ["Mecury", "Venus", "Earth", "Mars", "Jupitar", "Saturn", "Uranus", "Neptune"];
+
+            // function for logging the planets array
+            function logPlanets() {
+                console.log('Here is the list of planets:');
+                console.log(planets);
+            }
+
+            console.log('Adding "The Sun" to the beginning of the planets array.');
+            // todo: Do what the log statement above says you will do.
+            logPlanets(planets.unshift("Sun"));
+                console.log(planets);
+
+            console.log('Adding "Pluto" to the end of the planets array.');
+            // todo: Do what the log statement above says you will do.
+            logPlanets(planets.push("Pluto"));
+
+            console.log('Removing "The Sun" from the beginning of the planets array.');
+            // todo: Do what the log statement above says you will do.
+            logPlanets(planets.shift("Sun"));
+
+            console.log('Removing "Pluto" from the end of the planets array.');
+            // todo: Do what the log statement above says you will do.
+            logPlanets(planets.pop("Pluto"));
+
+            console.log('Finding and logging the index of "Earth" in the planets array.');
+            // todo: Do what the log statement above says you will do.
+                console.log("This is the index of Earth: " + planets.indexOf("Earth"));
+
+            console.log('Using splice to remove the planet after Earth.');
+            // todo: Do what the log statement above says you will do.
+            logPlanets(planets.splice(3, 1));
+
+            console.log('Using splice to add back the planet after Earth.');
+            // todo: Do what the log statement above says you will do.
+            logPlanets(planets.splice(planets.indexOf("Earth") + 1, 0, "Mars"));
+
+            console.log('Reversing the order of the planets array.');
+            // todo: Do what the log statement above says you will do.
+            logPlanets(planets.reverse());
+
+            console.log('Sorting the planets array.');
+            logPlanets(planets.sort());
+        </script>
+    </body>
+</html>

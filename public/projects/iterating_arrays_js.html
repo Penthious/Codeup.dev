@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>arrays</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            "use strict"
+            var names = ["Tomas", "Bob", "Bill", "Ted"]
+            console.log(names.length);
+            console.log(names[0]);
+            console.log(names[1]);
+            console.log(names[2]);
+            console.log(names[3]);
+
+            for (var i = 0; i < names.length; i++) {
+                console.log("The index of " + i + " on the array is " + names[i] + ".");
+            };
+
+            names.forEach(function(element, index, array){
+                console.log("The name at " + index + " is " + element + ".");
+            });
+
+
+            var planets = ["Mercury", "Venus", "Mars", "Earth", "Jupitar", "Saturn", 'Uranus', "Neptune"];
+
+            for (var i = 0; i < planets.length; i++) {
+                console.log("The index of " + i + " has the name of " + planets[i]);
+            };
+
+            planets.forEach(function(element, index, array){
+                console.log("The index of " + element + " is " + index);
+            });
+        </script>
+    </body>
+</html>
