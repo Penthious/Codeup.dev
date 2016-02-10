@@ -58,13 +58,31 @@
             console.log(books);
 
             books.forEach(function(book, index, array){
-                console.log("This is the book we are on: " + book.title +" its index is " + index +" and this is the author of that book: " + book.author.lastName + ", " + book.author.firstName);
+                console.log("This is the book we are on: " + book.title +" its index is " + index +" and this is the author of that book: " + book.author.lastName + ", " + book.author.firstName );
                 console.log("index: " + index);
                 console.log("Book # " + (index + 1));
                 console.log("Title: " + book.title);
                 console.log("Author: " + book.author.lastName + ", " + book.author.firstName);
-                console.log("----------------");
+                if (index < array.length - 1) {
+                    console.log("----------------");
+                }
             });
+
+            var arrayOfStrings = []
+            books.forEach(function(book, index, array){
+                arrayOfStrings.push(("This is the book we are on: " + book.title +" its index is " + index +" and this is the author of that book: " + book.author.lastName + ", " + book.author.firstName ));
+            });
+            console.log(arrayOfStrings);
+            arrayOfStrings.forEach(function(string, index, array){
+                console.log(string);
+            });
+
+
+
+
+
+
+
 
             // todo:
             // Loop through the array of books using .forEach and print out the specified information about each one.
