@@ -1,0 +1,83 @@
+body{
+    background-color: grey;
+
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+/* This is the input section */
+
+#center-input{
+    width: 10%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    height: 20px;
+    font-size: 17px;
+    margin-left: 3px;
+    border-radius: 6px;
+}
+
+#left-input{
+    background-color: red;
+    color:white;
+    text-align: right;
+    height: 20px;
+    font-size:17px;
+    width: 40%;
+    border-radius: 6px;
+}
+
+#right-input{
+    float: right;
+    background-color: red;
+    text-align: left;
+    height: 20px;
+    font-size: 17px;
+    width: 40%;
+    border-radius: 6px;
+}
+/* end of input section */
+
+/* This is the button section */
+button{
+    font-size: 2.2em;
+    font-family: monospace;
+    margin-top: .2em;
+    width: 24%;
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+}
+
+.calculator_border{
+    position: relative;
+    margin: auto;
+    border: solid 1px black;
+    width: 20em;
+    height: 21em;
+    border-radius: 6px;
+    padding: 2px;
+    background-color: blue;
+}
+
+#finalOutCome{
+    width: 99%;
+    color: white;
+    background-color: black;
+    border: solid 1px white;
+    border-radius: 6px;
+    font-size: 60px;
+    height:115px;
+    margin: 0;
+    word-wrap: break-word;
+    margin-top: 5px;
+    text-align: right;
+}
+/* end of button section */

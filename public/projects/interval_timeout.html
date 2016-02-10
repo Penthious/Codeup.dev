@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>interval</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        var count = 0;
+var max = 10;
+var interval = 1; // interval time in milliseconds
+
+var intervalId = setInterval(function () {
+if (count >= max) {
+    clearInterval(intervalId);
+    console.log('All done');
+} else {
+    count++;
+    console.log('Repeating this line ' + count);
+}
+}, interval);
+        </script>
+    </body>
+</html>
