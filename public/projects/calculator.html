@@ -9,10 +9,14 @@
         <h1>Codeup Calculator</h1>
         <!-- This is the input section -->
         <div class="calculator_border">
+            <div id="newCalculator">
+                <button class="btn btn-Top" id="hexButton">Hex</button>
+                <button class="btn btn-Top" id="binaryButton">Bin</button>
+            </div>
             <div class="rowInput">
-                <input class="inputSection" id="left-input" type="text">
-                <input class="inputSection" id="center-input" type="text">
-                <input class="inputSection" id="right-input" type="text">
+                <input class="inputSection" id="left-input" type="text" readonly>
+                <input class="inputSection" id="center-input" type="text" readonly>
+                <input class="inputSection" id="right-input" type="text" readonly>
             </div>
             <!-- This is the first section containing 1,2,3,+ -->
             <div class="rowPlusOperator">
@@ -35,12 +39,19 @@
                 <button class="btn buttonNumbers buttonNine" data-num="9">9</button>
                 <button class="btn buttonOperators" id="buttonStar" data-ops="times">*</button>
             </div>
-                <!-- This is the first section containing Clear,0,=,/ -->
+                <!-- This is the first section containing Clear,0,/ -->
             <div class="rowDivideOperator">
-                <button class="btn buttonClear" id="clearInputs" data-ops="clear">C</button>
-                <button class="btn buttonNumbers buttonZero" data-nums="0">0</button>
-                <button class="btn" id="buttonEqual" data-ops="equal">=</button>
+                <button class="btn buttonClear" id="clearInputs" data-ops="clear">AC</button>
+                <button class="btn" id="buttonZero" data-nums="0">0</button>
+                <button class="btn" id="backSpace">DEL</button>
                 <button class="btn buttonOperators" id="buttonDivide" data-ops="divide">/</button>
+            </div>
+                <!-- This is the section for =,decimal,^,% -->
+            <div class="row">
+                <button class="btn" id="buttonEqual" data-ops="equal">=</button>
+                <button class="btn" id="decimal">.</button>
+                <button class="btn buttonOperators" id="power">^</button>
+                <button class="btn buttonOperators" id="modulas">%</button>
             </div>
             <!-- This is the first section containing the final input -->
             <div>
