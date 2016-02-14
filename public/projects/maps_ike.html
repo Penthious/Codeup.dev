@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
+
+    <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_33XdoG3kfKfPtlRLe73c9fgCphHqqdg"></script>
+
+    <!-- Script to show address on map -->
+    <script type="text/javascript">
+    (function() {
+        "use strict";
+
+        // Set our map options
+        var mapOptions = {
+            // Set the zoom level
+            zoom: 18,
+
+            // This sets the center of the map at our location
+            center: {
+                lat:  29.4284595,
+                lng: -98.492433
+            }
+        };
+
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        var inlawAddress = new google.maps.Geocoder();
+        var addressHome = "7406 snow valley";
+        inlawAddress.geocode({"address": addressHome}, function(result, status){
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                map.setCenter(result[0].geometry.location);
+
+                var marker = new google.maps.Marker({
+                position: result[0].geometry.location,
+                map: map
+                });
+
+                var infowindow = new google.maps.InfoWindow({
+                content: "Changing the world, one programmer at a time."
+                });
+                infowindow.open(map, marker);
+            }
+        });
+    })();
+    </script>
+</body>

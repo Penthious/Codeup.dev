@@ -1,0 +1,10 @@
+.ticTacToeBorder{
+    text-align: center;
+    height: 500px;
+    width: 500px;
+}
+.btn{
+    height: 150px;
+    width:  150px;
+    font-size: 100px;
+}

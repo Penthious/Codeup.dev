@@ -11,9 +11,13 @@ var equalOperator = document.getElementById("buttonEqual");
 var calculation = document.getElementById("finalOutCome");
 var clearInputs = document.getElementById("clearInputs");
 var decimalInput = document.getElementById("decimal");
-var backSpace = document.getElementById("backSpace")
-var zeroInput = document.getElementById("buttonZero")
+var backSpace = document.getElementById("backSpace");
+var zeroInput = document.getElementById("buttonZero");
 var multiDecimalCheck = false;
+var aButton = document.getElementById("aButton");
+var aButton = document.getElementById("bButton");
+var konamiCode = [];
+var theCode = [38, 38, 40, 40, 37, 39, 37, 39, 65, 66];
 
 // These are the elements with ID's event listener's
 equalOperator.addEventListener("click",calculateNumbers);
@@ -21,7 +25,25 @@ clearInputs.addEventListener("click", clearAllInputs);
 decimalInput.addEventListener("click", addDecimalToInputboxes);
 backSpace.addEventListener("click", delInput);
 zeroInput.addEventListener("click",addNumberToLeftScreen);
+aButton.addEventListener("click", addToCode);
+bButton.addEventListener("click", addToCode);
 
+
+function addToCode(event){
+    if (this.keyCode) {
+        konamiCode.push(event.keyCode)
+        console.log(konamiCode);
+        if (konamiCode.join("") == theCode.join('')) {
+            konamiCode =[];
+              console.log("foo");
+    }
+    if (konamiCode.length > theCode.length ){
+        alert("Please enter the correct code")
+        konamiCode = []
+    }
+};
+
+};
 
 // These are all the funtions
 function addNumberToLeftScreen(event){

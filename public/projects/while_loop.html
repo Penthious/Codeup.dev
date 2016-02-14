@@ -58,6 +58,26 @@ for (var i = 1; i <= 100; i += 1) {
     }
 }
 
+var power = function(base, exponent) {
+  var result = 0;
+  for (var i = 0; i < exponent; i++)
+    result =  result * base ;
+    return result;
+
+};
+var landscape = function() {
+  var result = "";
+  var flat = function(size) {
+    for (var count = 0; count < size; count++)
+      result += "_";
+  };
+  var mountain = function(size) {
+    result += "/";
+    for (var count = 0; count < size; count++)
+      result += "'";
+    result += "\\";
+  };
+
 
     </script>
 

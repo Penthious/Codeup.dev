@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/">
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script src="/js/jquery-1.12.0.js"></script>
+        <script type="text/javascript">
+        var landscape = function() {
+      var result = "";
+      var flat = function(size) {
+        for (var count = 0; count < size; count++)
+        console.log(result);
+          result += "_";
+      };
+      var mountain = function(size) {
+        result += "/";
+        console.log(result);
+        for (var count = 0; count < size; count++)
+          result += "'";
+          console.log(result);
+        result += "\\";
+        console.log(result);
+      };
+
+      flat(3);
+      mountain(4);
+      flat(6);
+      mountain(1);
+      flat(1);
+      return result;
+    };
+
+    console.log(landscape());
+
+    function min(num, numb){
+  if(num < numb){
+    return num;
+}
+}
+        </script>
+    </body>
+</html>
