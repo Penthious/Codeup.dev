@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animate</title>
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0;
+        }
+
+        #btn-animate {
+            margin: 15px;
+        }
+
+        #animate-box {
+            background-color: #000033;
+            height: 250px;
+            margin: 15px;
+            position: relative;
+            width: 250px;
+            text-decoration:
+
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <button id="btn-move">Move It</button>
+        <button id="btn-scale">Scale It</button>
+        <button id="btn-hide">Hide It</button>
+        <button id="btn-show">Show It</button>
+        <button id="btn-all">Animate All</button>
+    </p>
+
+    <div id="animate-box"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+        "use strict";
+
+
+
+
+
+
+        $("#btn-move").click(function blink(){
+            $("#animate-box").animate({
+                "opacity" : "0"
+            },30).animate({
+                "opacity" : "1"
+            },30, blink)
+        })
+
+
+
+
+
+        // $("#btn-move").click(function(event){
+        //     $("#animate-box").animate({
+        //         "left":"+=100px",
+        //         "background-color" : "#000000"
+        //
+        //     })
+        // })
+        $("#btn-scale").click(function(event){
+            $("#animate-box").animate({
+                "width" : "+=50%",
+                "height" : "+=100px"
+            })
+        })
+        $("#btn-hide").click(function(event){
+            $("#animate-box").animate({
+                "opacity" : "0"
+            }).animate({
+                "opacity" : "1"
+            })
+        })
+        $("#btn-show").click(function(event){
+            $("#animate-box").animate({
+                "opacity" : "1"
+            },1000)
+        })
+        $("#btn-all").click(function(event){
+            $("#animate-box").animate({
+                "width" : "+=50%",
+                "left":"+=100px",
+                "opacity" : "0"
+            }).animate({
+                "opacity" : "1",
+                "width" : "-=50%",
+                "left":"-=100px",
+            })
+
+        })
+
+        // TODO: "Move It" should move the box 100 pixels to the left
+
+        // TODO: "Scale It" should expand the box width by 50%
+
+        // TODO: "Hide It" should use opacity to make the box invisible
+
+        // TODO: "Show It" should make the box appear
+
+        // TODO: "Animate All" should use an animation stack to:
+        //      1) Move and scale the box simultaneously
+        //      2) Hide the box
+        //      3) Reset the box back to its original position and opacity
+
+
+
+
+        // Write a function that accepts an array of numbers, and returns an array of numbers that are all evenly divisible by the number 3.
+
+        function arrayOfNumbers(array){
+            var arrays =array
+                arrays.sort()
+        }
+
+
+    </script>
+</body>
+</html>

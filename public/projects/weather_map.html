@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+        body{
+            background-color: black;
+        }
+        h2{
+            color: red;
+        }
+        #addressForm{
+            width: 300px;
+            height: 40px;
+            font-size: 1.4rem;
+            background-color: grey;
+            border: solid 1px red;
+            border-radius: 5px;
+        }
+        #map-canvas {
+            position: relative;
+            top: 50px;
+            width: 1000px;
+            height: 481px;
+            background-color: grey;
+            margin-bottom: 50px;
+            border-radius: 20px;
+        }
+            .tableMain{
+                padding: 10px;
+                border-collapse: collapse;
+                border: solid 2px red;
+                text-align: center;
+                width: 100%;
+                background-color: rgb(128, 3, 3);
+            }
+            .tableBorder{
+                padding: 10px;
+                font-size: 1.4rem;
+                border-left: solid 2px red;
+                border-right: solid 2px red;
+                border-collapse: collapse;
+                text-align: center;
+                width: 300px;
+            }
+            .centerAll{
+                text-align: center;
+            }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="centerAll">
+            <div id="weatherBorder">
+                <h1>Weather Aplication</h1>
+            </div>
+
+
+                <input id="addressForm" type="text" name="name" value="" placeholder="Enter address">
+                <button id="addressButton" type="submit" name="button">Submit</button>
+            </input>
+
+            <div id="map-canvas"></div>
+        </div>
+
+        <script src="/js/jquery-1.12.0.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_33XdoG3kfKfPtlRLe73c9fgCphHqqdg"></script>
+        <script>
+        "use strict"
+        var addressInput = "7406 snow valley";
+        weatherApi();
+        googleMaps();
+        $("#addressForm").keydown(function(event){
+            if (event.keyCode == 13) {
+                addressInput = $("#addressForm").val();
+                googleMaps();
+                weatherApi();
+            }
+        });
+
+        $("#addressButton").on("click",function(event){
+                addressInput = $("#addressForm").val();
+                googleMaps();
+                weatherApi();
+        });
+        function weatherApi(){
+        $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+
+            APPID: "8c918e3b0b0ee8835f76a3fb956393fc",
+            q:     addressInput,
+            cnt:   "3",
+            units: "imperial"
+        }).done(function(data){
+            var tables = createTable(data);
+            var createMap = googleMaps();
+            $("#weatherBorder").html(tables);
+            $("#map-canvas").append(createMap);
+        });
+    }
+
+
+
+        function createTable(data){
+            console.log(data);
+            var content  = ""
+                content += "<div><h2>"+data.city.name+"</h2></div>";
+                content += "<table class='tableMain'>"
+
+                content += "<tr>"
+                data.list.forEach(function(element,index,array){
+                    var date = new Date(element.dt*1000)
+                    content += "<td class='tableBorder'>"+  date.toDateString() +"</td>"
+                })
+                content += "</tr>"
+
+                content += "<tr>"
+                data.list.forEach(function(element,index,array){
+                    content += "<td class='tableBorder'>"+ parseInt(element.temp.max)+ "/" + parseInt(element.temp.min) +"&#8457;"+"</td>"
+                })
+                content += "</tr>"
+
+                content += "<tr>"
+                data.list.forEach(function(element,index,array){
+                    content += '<td class="tableBorder"><img src ="http://openweathermap.org/img/w/'+element.weather[0].icon+'.png">'+"</td>"
+                })
+                content += "</tr>"
+
+
+                content += "<tr>"
+                data.list.forEach(function(element,index,array){
+                    content += '<td class="tableBorder">'+element.weather[0].main+ ': '+ element.weather[0].description+"</td>"
+                })
+                content += "</tr>"
+
+                content += "<tr>"
+                data.list.forEach(function(element,index,array){
+                    content += '<td class="tableBorder"> Humidity: '+element.humidity+"</td>"
+                })
+                content += "</tr>"
+
+                content += "<tr>"
+                data.list.forEach(function(element,index,array){
+                    content += '<td class="tableBorder"> Wind: '+element.speed+"</td>"
+                })
+                content += "</tr>"
+
+                content += "<tr>"
+                data.list.forEach(function(element,index,array){
+                    content += '<td class="tableBorder"> Pressure '+element.pressure+"</td>"
+                })
+                content += "</tr>"
+                content += "</table>"
+                return content;
+        }
+        function googleMaps(){
+            var mapOptions = {
+                // Set the zoom level
+                zoom: 18,
+
+                // This sets the center of the map at our location
+                center: {
+                    lat:  29.4284595,
+                    lng: -98.492433
+                }
+            };
+
+            // Render the map
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+            var mapAddress = new google.maps.Geocoder();
+            var addressHome = addressInput;
+            mapAddress.geocode({"address": addressHome}, function(result, status){
+                if (status == google.maps.GeocoderStatus.OK) {
+
+                    map.setCenter(result[0].geometry.location);
+
+                    var marker = new google.maps.Marker({
+                    position: result[0].geometry.location,
+                    map: map,
+                    draggable: true,
+                     animation: google.maps.Animation.DROP,
+                    });
+
+                    map.addListener('click', toggleBounce);
+                    function toggleBounce() {
+                        console.log(google.maps);
+                        var marker = new google.maps.Marker({
+                        position: {
+                            lat:  29.4284595,
+                            lng: -98.492433
+                        },
+                        map: map,
+                        draggable: true,
+                        animation: google.maps.Animation.DROP,
+                        });
+                    }
+
+                    var infowindow = new google.maps.InfoWindow({
+                    content: "Changing the world, one programmer at a time."
+                    });
+                    infowindow.open(map, marker);
+                }
+            });
+        }
+        </script>
+    </body>
+</html>

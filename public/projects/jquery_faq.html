@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .invisible{
+            display: none;
+            }
+        </style>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <dl id="dlSection">
+            <dt class="">
+                test
+            </dt>
+                <dd class="invisible">testsssss</dd>
+            <br>
+            <dt class="">
+                test2
+            </dt>
+                <dd class="invisible">tesssttststhoeu</dd>
+            <br>
+            <dt class="">
+                test3
+            </dt>
+                <dd class="invisible">tttetteteotoe</dd>
+            <br>
+            <dt class="">
+                test4
+            </dt>
+                <dd class="invisible">testettotetoe</dd>
+            <br>
+            <dt class="">
+                test5
+            </dt>
+                <dd class="invisible">tettestotehta</dd>
+            <br>
+            <dt class="">
+                test6
+            </dt>
+                <dd class="invisible">tetetostete</dd>
+            <br>
+            <dt class="">
+                test7
+            </dt>
+                <dd class="invisible">aoeueouu</dd>
+            <br>
+            <dt class="">
+                test8
+            </dt>
+                <dd class="invisible">toeunsthonteh</dd>
+            <br>
+            <dt class="">
+                test9
+            </dt>
+                <dd class="invisible">aoevtuhaoehu</dd>
+            <br>
+            <dt class="">
+                test10
+            </dt>
+                <dd class="invisible">aoeu,.poeu</dd>
+        </dl>
+        <ul>
+            <li>List 1</li>
+            <li>list 2</li>
+            <li>List 3</li>
+        </ul>
+        <ul>
+            <li>List 4</li>
+            <li>List 5</li>
+            <li>List 6</li>
+        </ul>
+        <ul>
+            <li>list 7</li>
+            <li>List 8</li>
+            <li>List 9</li>
+        </ul>
+        <a href="#">Toggle</a>
+        <script src="/js/jquery-1.12.0.js"></script>
+        <script type="text/javascript">
+        $("dt").on("click",toggleDefiniton);
+        function toggleDefiniton(event){
+            $("dd").toggleClass("invisible");
+        }
+        $("a").on("click", toggleLists)
+
+        $("ul").each(function toggleColor(event){
+            $(this).children().eq("1").css("color","red")
+        })
+
+        function toggleLists(event){
+            $("li").first().addClass("invisible");
+            $("li").hide()
+        }
+        $("ul").css("background-color","blue");
+        $("li").css("background-color", "green");
+
+        // $("ul").children().eq("0").css("color", "red")
+        // $("ul").children().eq("3").css("color", "red")
+        // $("ul").children().eq("6").css("color", "red")
+        $("li").click(function(){
+            $(this).parent().addClass("invisible")
+        })
+
+        </script>
+    </body>
+</html>

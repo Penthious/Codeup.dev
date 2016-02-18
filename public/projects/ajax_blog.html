@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #post{
+                position: relative;
+
+            }
+        </style>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="post">
+
+        </div>
+        <script src="/js/jquery-1.12.0.js"></script>
+        <script>
+        "use strict"
+
+            $.ajax("/data/blog.json").done(function(data){
+                data.forEach(function(element,index,array){
+                    var content = ""
+                        content += "<h1>" + element.title + "</h1>"
+                        content += "<p>" + element.content + "</p>"
+                    $("#post").append(content).css({
+                        "color" : "red",
+                    },2000).animate({
+                        "width" : "200px",
+                        "left" : "500px",
+                        "top" : "300px",
+                        "font-style": "italic"
+                    }).animate({
+                        "width" : "600px",
+                        "left" : "10px",
+                        "top" : "10px"
+                    },2000)
+                })
+            })
+            
+        </script>
+    </body>
+</html>

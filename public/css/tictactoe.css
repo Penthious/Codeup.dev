@@ -7,4 +7,6 @@
     height: 150px;
     width:  150px;
     font-size: 100px;
+    cursor: crosshair;
+    /* cursor: url(/img/teal-1.png), auto; */
 }
