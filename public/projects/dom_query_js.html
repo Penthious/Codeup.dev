@@ -17,15 +17,15 @@
                 console.log(this);
             };
             var button1Listener = function(event){
-                button1Target.style.color="blue"
-                button1Target.style.positon = "relitive"
-                b
+                button1Target.style.color="blue";
+                button1Target.style.positon = "relitive";
+                b;
                 event.target.innerHTML ="try again!"
             };
             // event for all the buttons
             for (var i = 0; i < buttons.length; i++) {
                 buttons[i].addEventListener("click",listener)
-            };
+            }
             // event for button 1
                 button1Target.addEventListener("click",button1Listener);
 

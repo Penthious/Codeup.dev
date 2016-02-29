@@ -30,7 +30,7 @@
 			}
 			
 			//Raptor Vars
-			var raptorImageMarkup = '<img id="elRaptor" style="display: none" src="raptor.png" />'
+			var raptorImageMarkup = '<img id="elRaptor" style="display: none" src="raptor.png" />';
 			var raptorAudioMarkup = '<audio id="elRaptorShriek" preload="auto"><source src="raptor-sound.mp3" /><source src="raptor-sound.ogg" /></audio>';	
 			var locked = false;
 			
@@ -42,7 +42,7 @@
 				"bottom": "-700px",
 				"right" : "0",
 				"display" : "block"
-			})
+			});
 			
 			// Animating Code
 			function init() {
@@ -70,7 +70,7 @@
 							raptor = $('#elRaptor').css({
 								"bottom": "-700px",
 								"right" : "0"
-							})
+							});
 							locked = false;
 						})
 					});
@@ -102,5 +102,5 @@
 			
         });//each call
     }//orbit plugin call
-})(jQuery);
+})(jQuery);;
 

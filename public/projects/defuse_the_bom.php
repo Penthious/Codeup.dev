@@ -24,13 +24,13 @@
             }
 
             detonationTimer--;
-        }, interval)
+        }, interval);
 
         // TODO: When this function runs, it needs to
         // cancel the interval/timeout for updateTimer()
         function defuseTheBOM()
         {
-            clearInterval(timeoutId)
+            clearInterval(timeoutId);
             document.getElementById("message").innerHTML = "You defused the bomb!!!"
 
         }

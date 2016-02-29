@@ -83,11 +83,11 @@
         function toggleDefiniton(event){
             $("dd").toggleClass("invisible");
         }
-        $("a").on("click", toggleLists)
+        $("a").on("click", toggleLists);
 
         $("ul").each(function toggleColor(event){
             $(this).children().eq("1").css("color","red")
-        })
+        });
 
         function toggleLists(event){
             $("li").first().addClass("invisible");

@@ -6,7 +6,7 @@
     </head>
     <body>
         <script type="text/javascript">
-            "use strict"
+            "use strict";
             // todo:
             // Create an array holding the names of the planets of our solar system (in order, starting closest to the sun).
             var planets = ["Mecury", "Venus", "Earth", "Mars", "Jupitar", "Saturn", "Uranus", "Neptune"];
@@ -65,7 +65,7 @@
             
 
             function join(array, delimiter){
-            var string = ""
+            var string = "";
                 array.forEach(function(name, index){
                     if (string != "") {
                         string = string + delimiter;
@@ -74,7 +74,7 @@
                     console.log(string);
                 });
                 return string;
-            };
+            }
             var result = join(planets, ", ");
             console.log(result);
 

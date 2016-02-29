@@ -6,7 +6,7 @@
     </head>
     <body>
         <script type="text/javascript">
-            "use strict"
+            "use strict";
             // todo: Ask the user for their name.
             //       Keep asking if an empty input is provided.
 
@@ -19,14 +19,14 @@
                 username = username.trim();
             }
             while (username == "" || username == null) {
-                username = prompt("Please enter your username.")
+                username = prompt("Please enter your username.");
                 if (username != null) {
                     username = username.trim();
                 }
             }
-            alert("Hello " + username)
+            alert("Hello " + username);
 
-            var answer = prompt(username + " do you like pizza: Yes or No")
+            var answer = prompt(username + " do you like pizza: Yes or No");
             answer = answer.trim().toLowerCase();
             while (answer == "") {
                 answer = prompt("Please input yes or no if you like pizza")

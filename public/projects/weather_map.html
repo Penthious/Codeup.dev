@@ -66,7 +66,7 @@
         <script src="/js/jquery-1.12.0.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_33XdoG3kfKfPtlRLe73c9fgCphHqqdg"></script>
         <script>
-        "use strict"
+        "use strict";
         var addressInput = "7406 snow valley";
         weatherApi();
         googleMaps();
@@ -95,6 +95,8 @@
             var createMap = googleMaps();
             $("#weatherBorder").html(tables);
             $("#map-canvas").append(createMap);
+        }).fail(function(){
+            alert("Input correct address")
         });
     }
 
@@ -102,54 +104,54 @@
 
         function createTable(data){
             console.log(data);
-            var content  = ""
+            var content  = "";
                 content += "<div><h2>"+data.city.name+"</h2></div>";
-                content += "<table class='tableMain'>"
+                content += "<table class='tableMain'>";
 
-                content += "<tr>"
+                content += "<tr>";
                 data.list.forEach(function(element,index,array){
-                    var date = new Date(element.dt*1000)
+                    var date = new Date(element.dt*1000);
                     content += "<td class='tableBorder'>"+  date.toDateString() +"</td>"
-                })
-                content += "</tr>"
+                });
+                content += "</tr>";
 
-                content += "<tr>"
+                content += "<tr>";
                 data.list.forEach(function(element,index,array){
-                    content += "<td class='tableBorder'>"+ parseInt(element.temp.max)+ "/" + parseInt(element.temp.min) +"&#8457;"+"</td>"
-                })
-                content += "</tr>"
+                    content += "<td class='tableBorder'>"+ Math.round(element.temp.max)+ "/"+ Math.round(element.temp.min) +"&#8457;"+"</td>"
+                });
+                content += "</tr>";
 
-                content += "<tr>"
+                content += "<tr>";
                 data.list.forEach(function(element,index,array){
                     content += '<td class="tableBorder"><img src ="http://openweathermap.org/img/w/'+element.weather[0].icon+'.png">'+"</td>"
-                })
-                content += "</tr>"
+                });
+                content += "</tr>";
 
 
-                content += "<tr>"
+                content += "<tr>";
                 data.list.forEach(function(element,index,array){
                     content += '<td class="tableBorder">'+element.weather[0].main+ ': '+ element.weather[0].description+"</td>"
-                })
-                content += "</tr>"
+                });
+                content += "</tr>";
 
-                content += "<tr>"
+                content += "<tr>";
                 data.list.forEach(function(element,index,array){
-                    content += '<td class="tableBorder"> Humidity: '+element.humidity+"</td>"
-                })
-                content += "</tr>"
+                    content += '<td class="tableBorder"> Humidity: '+Math.round(element.humidity)+"</td>"
+                });
+                content += "</tr>";
 
-                content += "<tr>"
+                content += "<tr>";
                 data.list.forEach(function(element,index,array){
-                    content += '<td class="tableBorder"> Wind: '+element.speed+"</td>"
-                })
-                content += "</tr>"
+                    content += '<td class="tableBorder"> Wind: '+Math.round(element.speed)+"</td>"
+                });
+                content += "</tr>";
 
-                content += "<tr>"
+                content += "<tr>";
                 data.list.forEach(function(element,index,array){
-                    content += '<td class="tableBorder"> Pressure '+element.pressure+"</td>"
-                })
-                content += "</tr>"
-                content += "</table>"
+                    content += '<td class="tableBorder"> Pressure '+Math.round(element.pressure)+"</td>"
+                });
+                content += "</tr>";
+                content += "</table>";
                 return content;
         }
         function googleMaps(){
@@ -181,24 +183,49 @@
                      animation: google.maps.Animation.DROP,
                     });
 
-                    map.addListener('click', toggleBounce);
-                    function toggleBounce() {
-                        console.log(google.maps);
+                    // map.addListener('click', toggleBounce);
+                    // function toggleBounce() {
+                    //     console.log(google.maps);
+                    //     var marker = new google.maps.Marker({
+                    //         position:
+                    //     map: map,
+                    //     draggable: true,
+                    //     animation: google.maps.Animation.DROP,
+                    //     });
+                    // }
+                
+
+
+
+                    google.maps.event.addListener(map, 'click', function(event) {
+                       addMarker(event.latLng, map);
+
+                   });
+                       function addMarker(location, map) {
+                           var lat = location.lat;
+                           var lng = location.lng;
+
                         var marker = new google.maps.Marker({
-                        position: {
-                            lat:  29.4284595,
-                            lng: -98.492433
-                        },
+                        position: location,
                         map: map,
                         draggable: true,
                         animation: google.maps.Animation.DROP,
-                        });
+
+
+                      });
+                      marker.addListener("dragend",function(event){
+
+                      })
+                      console.log("this is lat" +lat);
                     }
+
+
 
                     var infowindow = new google.maps.InfoWindow({
                     content: "Changing the world, one programmer at a time."
                     });
                     infowindow.open(map, marker);
+
                 }
             });
         }

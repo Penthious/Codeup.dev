@@ -861,7 +861,7 @@ var arrayOfProfiles = [
     "greeting": "Hello, Ewing Larson! You have 16 unread messages.",
     "favoriteFruit": "strawberry"
   }
-]
+];
 
 // Produce a new object called var report and console.log it's contents
 // Report should display
@@ -900,11 +900,11 @@ function findSum(array){
     var balanceInParts = 0;
     array.forEach(function(element,index,array){
         if (element.balance) {
-        balanceInParts = element.balance.replace("$",'').replace(",",'')
+        balanceInParts = element.balance.replace("$",'').replace(",",'');
         totalBalance += parseFloat(balanceInParts);
         }
 
-})
+});
     return totalBalance
 }
 function findAvgAge(array){
@@ -922,7 +922,7 @@ function maleGender(array){
         if (element.gender == "male") {
             maleGender++
         }
-    })
+    });
     return maleGender;
 }
 function femaleGender(array){
@@ -931,18 +931,18 @@ function femaleGender(array){
         if (element.gender == "female") {
             femaleGender++
         }
-    })
+    });
     return femaleGender;
 }
 function usersCompany(array){
     var usersCompany =[];
-    var allCompanies
+    var allCompanies;
     array.forEach(function(element,index,array){
         if (element.company) {
              usersCompany.push(element.company)
 
         }
-    })
+    });
     return usersCompany.sort();
 }
 function blueEyeColor(array){
@@ -960,7 +960,7 @@ function greenEyeColor(array){
         if (element.eyeColor == "green") {
             greenEyes++;
         }
-    })
+    });
     return greenEyes;
 }
 function brownEyeColor(array){
@@ -969,7 +969,7 @@ function brownEyeColor(array){
         if (element.eyeColor == "brown") {
             brownEyes++;
         }
-    })
+    });
     return brownEyes;
 }
 for (var i = 0; i < array.length; i++) {

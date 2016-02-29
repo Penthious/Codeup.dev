@@ -31,28 +31,28 @@
     <script>
         "use strict";
         (function() {
-            var button1 = document.getElementById("changeHeader")
+            var button1 = document.getElementById("changeHeader");
             button1.addEventListener("click",function(){
                 var mainHeader = document.getElementById("main-header");
                  mainHeader.innerHTML = "JavaScript is Cool";
 
-            })
+            });
 
             // TODO: Uncomment next line and get the main header element by id
 
             // TODO: Set inner html of mainHeader to "JavaScript is Cool"
 
             // TODO: Uncomment the next line and get the sub header element by id
-            var button2 = document.getElementById("changeSubHeader")
+            var button2 = document.getElementById("changeSubHeader");
             button2.addEventListener("click",function(){
             var subHeader = document.getElementById("sub-header");
             subHeader.style.color = "blue";
-        })
+        });
 
             // TODO: Set the text color of subHeader to blue
 
             // TODO: Uncomment the next line and get all list items
-            var button3 = document.getElementById("changeListItems")
+            var button3 = document.getElementById("changeListItems");
             button3.addEventListener("click",function(){
             var listItems = document.getElementsByTagName("li");
             for (var i = 0; i < listItems.length; i++) {
@@ -63,7 +63,7 @@
                 listItems[0].style.color = "blue";
             }
         }
-        })
+        });
 
 
 

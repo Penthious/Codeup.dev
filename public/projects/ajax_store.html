@@ -25,13 +25,13 @@
 (function() {
      $.ajax("/data/inventory.json").done(function(data){
         data.forEach(function(element, index, array){
-            var tableAdding = ""
-                tableAdding += "<tr>"
-                tableAdding += "<td>" + element.title + "</td>"
-                tableAdding += "<td>" + element.quantity + "</td>"
-                tableAdding += "<td>" + element.price + "</td>"
-                tableAdding += "<td>" + element.categories.join(", ") + "</td>"
-                tableAdding += "</tr>"
+            var tableAdding = "";
+                tableAdding += "<tr>";
+                tableAdding += "<td>" + element.title + "</td>";
+                tableAdding += "<td>" + element.quantity + "</td>";
+                tableAdding += "<td>" + element.price + "</td>";
+                tableAdding += "<td>" + element.categories.join(", ") + "</td>";
+                tableAdding += "</tr>";
                 $("#insertProducts").append(tableAdding);
 
             //  same as above

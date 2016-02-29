@@ -50,7 +50,7 @@
             },30).animate({
                 "opacity" : "1"
             },30, blink)
-        })
+        });
 
 
 
@@ -68,19 +68,19 @@
                 "width" : "+=50%",
                 "height" : "+=100px"
             })
-        })
+        });
         $("#btn-hide").click(function(event){
             $("#animate-box").animate({
                 "opacity" : "0"
             }).animate({
                 "opacity" : "1"
             })
-        })
+        });
         $("#btn-show").click(function(event){
             $("#animate-box").animate({
                 "opacity" : "1"
             },1000)
-        })
+        });
         $("#btn-all").click(function(event){
             $("#animate-box").animate({
                 "width" : "+=50%",
@@ -92,7 +92,7 @@
                 "left":"-=100px",
             })
 
-        })
+        });
 
         // TODO: "Move It" should move the box 100 pixels to the left
 
@@ -113,7 +113,7 @@
         // Write a function that accepts an array of numbers, and returns an array of numbers that are all evenly divisible by the number 3.
 
         function arrayOfNumbers(array){
-            var arrays =array
+            var arrays =array;
                 arrays.sort()
         }
 

@@ -1,4 +1,4 @@
-var buttonOperator = "x"
+var buttonOperator = "x";
 var arrayRow1 = [];
 var arrayRow2 = [];
 var arrayRow3 = [];
@@ -23,10 +23,10 @@ $(".arrayRow5").on("click",arrayRow5Push);
 $(".arrayRow6").on("click",arrayRow6Push);
 $(".arrayRow7").on("click",arrayRow7Push);
 $(".arrayRow8").on("click",arrayRow8Push);
-$(".arrayRowAll").on("click",winTicTacToe)
+$(".arrayRowAll").on("click",winTicTacToe);
 
 
-function buttonEvent(event){
+function buttonEvent(){
     if (buttonOperator == "o") {
         $(this).html("x");
         $(this).attr('disabled','disabled');
@@ -38,7 +38,7 @@ function buttonEvent(event){
         buttonOperator = "o";
         $(".turn").html("Turn: X");
     }
-};
+}
 
 function arrayRow1Push(event){
     arrayRow1.push(this.innerHTML);
@@ -91,12 +91,11 @@ function arrayRow8Push(event){
     clearAllForTie(event);
 }
 
-function winTicTacToe(event){
+function winTicTacToe(){
     if (arrayRow1.join() == threeX.join() || arrayRow2.join() == threeX.join() || arrayRow3.join() == threeX.join() || arrayRow4.join() == threeX.join() || arrayRow5.join() == threeX.join() || arrayRow6.join() == threeX.join() || arrayRow7.join() == threeX.join() || arrayRow8.join() == threeX.join()) {
-        $(".btn").removeAttr('disabled');
-        $(".btn").html("&nbsp;");
+        $(".btn").removeAttr('disabled').html("&nbsp;");
         countForX++;
-        $(".player1Count").html("Player X score: " + countForX)
+        $(".player1Count").html("Player X score: " + countForX);
         buttonOperator = "o";
         arrayRow1 = [];
         arrayRow2 = [];
@@ -110,11 +109,10 @@ function winTicTacToe(event){
     }
 
     if (arrayRow1.join() == threeO.join() || arrayRow2.join() == threeO.join() || arrayRow3.join() == threeO.join() || arrayRow4.join() == threeO.join() || arrayRow5.join() == threeO.join() || arrayRow6.join() == threeO.join() || arrayRow7.join() == threeO.join() || arrayRow8.join() == threeO.join()) {
-        $(".btn").removeAttr('disabled');
-        $(".btn").html("&nbsp;");
+        $(".btn").removeAttr('disabled').html("&nbsp;");
         buttonOperator = "x";
         countForO++;
-        $(".player2Count").html("Player O score: " + countForO)
+        $(".player2Count").html("Player O score: " + countForO);
         arrayRow1 = [];
         arrayRow2 = [];
         arrayRow3 = [];
@@ -127,14 +125,13 @@ function winTicTacToe(event){
     }
 }
 
-function clearAllForTie(event){
+function clearAllForTie(){
     var arrayTieArray = ["x", "x", "x", "o", "o", "x", "x", "x", "o", "o", "o", "o", "x", "x", "o", "o", "x", "x", "o", "o", "o", "x", "x", "x"];
     if (arrayAll.join().length == arrayTieArray.join().length) {
-        $(".btn").html("&nbsp;");
-        $(".btn").removeAttr('disabled');
+        $(".btn").html("&nbsp;").removeAttr('disabled');
         buttonOperator = "o";
         tieCount++;
-        $(".tieCount").html("tie: " + tieCount)
+        $(".tieCount").html("tie: " + tieCount);
         arrayRow1 = [];
         arrayRow2 = [];
         arrayRow3 = [];
