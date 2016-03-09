@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+}
+
+#main{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
+
+.sub{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.class_2{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.class_3{
+    border: 4px solid green;
+}

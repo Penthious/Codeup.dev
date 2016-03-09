@@ -1,0 +1,38 @@
+#wormBody{
+    background-color: red;
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 150px;
+    position: relative;
+    left: 1000px;
+}
+#wormEye{
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: relative;
+    left: 30px;
+    top: 30px;
+}
+#wormMouth{
+background-color: black;
+width: 20px;
+height: 2px;
+border: 1px solid black;
+border-radius: 50%;
+position: relative;
+left:0px;
+top: 50%;
+}
+#wormPupil{
+background-color: white;
+width: 3px;
+height: 3px;
+border-radius: 50%;
+position: relative;
+left: 1px;
+top: 50%;
+}
