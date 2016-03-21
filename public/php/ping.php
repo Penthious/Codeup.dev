@@ -1,16 +1,17 @@
 <?php
 require_once "functions.php";
+include_once '../../input.php';
 function pageController(){
     $counter = file_get_contents('counter.txt');
     $counter = (int)($counter);
     $newCounter;
     $data = [];
-    if (inputHas('Hit')) {
+    if (input::has('Hit')) {
         $newCounter = $counter + 1;
         $handle = fopen('counter.txt','w');
         fwrite($handle, $newCounter);
         fclose($handle);
-    }else if (inputHas('Miss')) {
+    }else if (input::has('Miss')) {
 
     }
     $_GET;

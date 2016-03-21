@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(!isset($_SESSION['LOGGED_IN_USER']) || $_SESSION['LOGGED_IN_USER'] == ''){
+require_once '../../Auth.php';
+if (Auth::check() == false) {
     header('Location: /php/login.php');
     die();
 }
-$username = (isset($_SESSION['LOGGED_IN_USER'])) ? $_SESSION['LOGGED_IN_USER'] : '';
 
 
 ?>

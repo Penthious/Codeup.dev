@@ -1,0 +1,10 @@
+.goToPage{
+    display: inline-block;
+}
+.goToNext_PreviousPage{
+    display: inline;
+}
+
+body{
+    background-color: grey; 
+}

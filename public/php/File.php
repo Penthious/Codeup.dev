@@ -7,6 +7,8 @@ class File{
     private $loggedMinute;
     private $loggedSecond;
     private $handle;
+    private $filename;
+
     private function open(){
          $this->currentYear    = date('Y');
          $this->currentMonth   = date('m');

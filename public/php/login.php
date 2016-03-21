@@ -1,26 +1,24 @@
 <?php
-require_once 'functions.php';
-session_start();
-$username = 'Tomas';
-$password = 'password';
-$loggedIn = false;
-var_dump($_SESSION);
+require_once '../../Input.php';
+require_once '../../Auth.php';
+require_once 'Log.php';
 
-$correctName = inputHas('username') ? inputGet('username') : '';
-$correctPassword = inputHas('password') ? inputGet('password') : '';
 
-if(isset($_SESSION['LOGGED_IN_USER']) && $_SESSION['LOGGED_IN_USER'] != ''){
+$correctName = Input::get('username', '');
+$correctPassword = Input::get('password', '');
+
+if (Auth::check()) {
     header('Location: /php/authorize.php');
     die();
-
-}
-
-if ($correctName == $username && $correctPassword == $password) {
-    $_SESSION['LOGGED_IN_USER'] = $username;
+}else if(Auth::attempt($correctName,$correctPassword)){
+    $logFile = new Log();
+    $logFile->logMessage('loggedIN','user has logged in successfully');
     header('Location: /php/authorize.php');
     die();
+}else if(input::has('username') && input::has('password')){
+    $logFile = new Log();
+    $logFile->logMessage('Failed','user failed to input correct username or password');
 
-}else if ($correctName != '' || $correctPassword != ''){
     echo "Please enter the correct username or password.";
 }
 
