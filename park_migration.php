@@ -16,7 +16,7 @@ $sqlCreateTable = <<<QUERY
         date_established DATE,
         area_in_acres DOUBLE,
         park_img VARCHAR(50),
-        description TEXT,
+        describtion VARCHAR(50),
         PRIMARY KEY (id)
     );
 QUERY;
