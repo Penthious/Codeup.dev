@@ -8,7 +8,8 @@ $offset = 0;
 $page = 1;
 
 if(Input::has('page')){
-    $page = Input::get('page');
+    $page = Input::get_number('page');
+    var_dump($page);
     $offset = $page * $limit - $limit;
 }
 
@@ -33,35 +34,72 @@ $_SESSION['totalPages'] = $totalPages;
 
 $require = ['name','location','date_established_first_section','date_established_second_section','date_established_third_section','area_in_acres','park_img','describtion'];
 
-
+$errors = [];
 
 
 if (Input::input_not_empty($require) && Input::is_date_valid()) {
 
-    $firstDate = Input::get('date_established_first_section');
-    $secondDate = Input::get('date_established_second_section');
-    $thirdDate = Input::get('date_established_third_section');
+    $firstDate = Input::get_number('date_established_first_section');
+    $secondDate = Input::get_number('date_established_second_section');
+    $thirdDate = Input::get_number('date_established_third_section');
 
+    try {
+        $name = Input::get_string('name');
+    } catch (Exception $e) {
+        $errors['name'] = $e->getMessage();
+    }
 
-        $name = Input::get('name');
-        $location = Input::get('location');
+    try {
+        $location = Input::get_string('location');
+    } catch (Exception $e) {
+        $errors['location'] = $e->getMessage();
+    }
+
+    try {
         $date_established = $firstDate . '-' . $secondDate . '-' . $thirdDate;
-        $area_in_acres = Input::get('area_in_acres');
-        $park_img = Input::get('park_img');
-        $describtion = Input::get('describtion');
+    } catch (Exception $e) {
+        $errors['date_established'] = $e->getMessage();
+    }
+
+    try {
+        $area_in_acres = Input::get_number('area_in_acres');
+    } catch (Exception $e) {
+        $errors['area_in_acres'] = $e->getMessage();
+    }
+
+    try {
+        $park_img = Input::get_string('park_img');
+    } catch (Exception $e) {
+        $errors['park_img'] = $e->getMessage();
+    }
+
+    try {
+        $describtion = Input::get_string('describtion');
+    } catch (Exception $e) {
+        $errors['describtion'] = $e->getMessage();
+
+    }
+
+
+var_dump($errors);
+
 
         $stmt = $dbc->prepare('INSERT INTO national_parks(name,location,date_established,area_in_acres,park_img,describtion)
         VALUES (:name,:location,:date_established,:area_in_acres,:park_img,:describtion)');
 
+if (empty($errors)) {
+    $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+    $stmt->bindValue(':location', $location, PDO::PARAM_STR);
+    $stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+    $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
+    $stmt->bindValue(':park_img', $park_img, PDO::PARAM_STR);
+    $stmt->bindValue(':describtion', $describtion, PDO::PARAM_STR);
 
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-        $stmt->bindValue(':location', $location, PDO::PARAM_STR);
-        $stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-        $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
-        $stmt->bindValue(':park_img', $park_img, PDO::PARAM_STR);
-        $stmt->bindValue(':describtion', $describtion, PDO::PARAM_STR);
 
-        $stmt->execute();
+    $stmt->execute();
+}
+
+
 
 }
 
@@ -79,6 +117,11 @@ if (Input::input_not_empty($require) && Input::is_date_valid()) {
         <title>Parks Index</title>
     </head>
     <body>
+
+        <?php foreach ($errors as $error): ?>
+            <h3>There was a error when you input: <?=$error?></h3>
+        <?php endforeach; ?>
+
          <?php foreach ($parks as $park): ?>
             <h1> <a href="parks_show.php?park_id=<?=$park['id'] ?>"> <?= $park['name']?></a>
             </h1>

@@ -33,13 +33,13 @@ class Input
 
     public static function is_date_valid()
     {
-        if (strlen(Input::get('date_established_first_section')) == 4
-        && strlen(Input::get('date_established_second_section')) == 2
-        && strlen(Input::get('date_established_third_section')) == 2) {
-            if (is_numeric(Input::get('date_established_first_section'))
-            && is_numeric(Input::get('date_established_second_section'))
-            && is_numeric(Input::get('date_established_third_section'))
-            && is_numeric(Input::get('area_in_acres'))) {
+        if (strlen(Input::get('date_established_first_section')) == 4  &&
+         strlen(Input::get('date_established_second_section')) == 2    &&
+         strlen(Input::get('date_established_third_section')) == 2) {
+            if (is_numeric(Input::get('date_established_first_section')) &&
+             is_numeric(Input::get('date_established_second_section'))   &&
+             is_numeric(Input::get('date_established_third_section'))    &&
+             is_numeric(Input::get('area_in_acres'))) {
             }else {
                 return false;
             }
@@ -47,6 +47,41 @@ class Input
             return false;
         }
         return true;
+    }
+
+    public static function get_string($key)
+    {
+        $value = self::get($key);
+        if(is_array($value) ||
+         is_numeric($value)   ||
+         is_bool($value)      ||
+         is_object($value)    ||
+         is_resource($value)  ||
+         is_null($value)){
+            throw new Exception('The input: '  . $value . ' needs to be a string');
+        }
+        return $value;
+    }
+
+    public static function get_number($key)
+    {
+        $value = self::get($key);
+        if(! is_numeric($value)){
+            throw new Exception('The input: ' . $value . ' needs to be a number');
+        }
+        return $value;
+    }
+
+
+    public static function get_date($key)
+    {
+        $value = Input::get($key);
+        $validDate = date_create($value);
+        if ($validDate) {
+            return date_create($key);
+        }else {
+            throw new Exception("Error Processing Request");
+        }
     }
 
     ///////////////////////////////////////////////////////////////////////////
