@@ -1,0 +1,17 @@
+body{
+    background-color: black;
+    color:darkred;
+}
+
+.navbar{
+
+    height: 40px;
+    width: 100%;
+    background: #455868;
+    font-size: 11pt;
+    font-family: 'PT Sans', Arial, sans-serif;
+    font-weight: bold;
+    position: relative;
+    border-bottom: 2px solid #283744;
+    top: 0;
+}

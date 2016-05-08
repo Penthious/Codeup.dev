@@ -71,7 +71,9 @@ abstract class Model
     /** Store the object in the database */
     public function save()
     {
-        if(isset($this->attributes['id'])){
+        if(empty($this->attributes)){
+            return;
+        }else if(isset($this->attributes['id'])){
             $this->update();
         }else{
             $this->insert();
@@ -94,4 +96,5 @@ abstract class Model
      * NOTE: Because this method is abstract, any child class MUST have it defined.
      */
     protected abstract function update();
+    
 }
